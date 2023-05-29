@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+
+  if(!isset($_SESSION['autenticado']) || $_SESSION['autenticado'] != 'Sim')
+  header('location: index.php?login=erro2');
+?>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -39,6 +46,25 @@
                 <div class="form-group">
                   <input type="password" name="senha" class="form-control" placeholder="Senha">
                 </div>
+
+                <!-- aqui uma mensagem de erro é mostrada para o(a) usuario(a) -->
+
+                <? if(isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
+
+                    <div class='text-danger' style="padding-bottom: 10px;">
+                      Usuário ou senha inválido(s)!
+                    </div>
+               
+                <? } ?>
+
+                <? if(isset($_GET['login']) && $_GET['login'] == 'erro2') { ?>
+
+                <div class='text-danger' style="padding-bottom: 10px;">
+                  Faça o login para poder acessar as páginas!
+                </div>
+
+                <? } ?>
+
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
             </div>
