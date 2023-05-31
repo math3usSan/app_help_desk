@@ -34,10 +34,10 @@
             <div class="card-body">
               <form action="valida_login.php" method="post">
                 <div class="form-group">
-                  <input name="email"  type="email" class="form-control" placeholder="E-mail">
+                  <input name="email"  type="email" class="form-control" placeholder="E-mail" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" name="senha" class="form-control" placeholder="Senha">
+                  <input type="password" name="senha" class="form-control" placeholder="Senha" required>
                 </div>
 
                 <!-- aqui uma mensagem de erro é mostrada para o(a) usuario(a) -->
