@@ -11,7 +11,7 @@
     
     // $texto = implode('#', $_POST);
 
-    $texto = $titulo . ' # ' . $categoria . ' # ' . $descricao . PHP_EOL;
+    $texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL;
     
     // abrindo o arquivo
     $arquivo = fopen('arquivo.hd', 'a');
