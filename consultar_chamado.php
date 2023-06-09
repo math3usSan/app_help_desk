@@ -2,7 +2,7 @@
   require_once("validador_acesso.php");
 ?>
 
-<?php 
+<?php
 
   $chamados = array();
 
@@ -16,8 +16,9 @@
 
   }
   // fechar o arquivo
-  fclose($arquivo);
-?>
+  fclose($arquivo); 
+  
+  ?>
 
 <html>
   <head>
@@ -62,22 +63,31 @@
             
             <div class="card-body">
 
+            
+
               <? foreach($chamados as $chamado) { ?>
 
                 <?php
 
-                  $chamado_dados = explode('#', $chamado);
+                $chamado_dados = explode('#', $chamado);
 
-                  if(count($chamado_dados) < 3) {
-                    continue;
-                  }
+                if($_SESSION['perfil_id'] == 2) {
+                  // so vamos exibiro chamado se ele for criado pelo usuario
+                  if($_SESSION['id'] != $chamado_dados[0]);
+
+                }
+
+                echo '<pre>';
+                print_r($chamado_dados);
+                echo'</pre>';
+                
                 ?>
-              
+
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?=$chamado_dados[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1] ?></h6>
-                  <p class="card-text"><?=$chamado_dados[2] ?></p>
+                  <h5 class="card-title"><?=$chamado_dados[0]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1]?></h6>
+                  <p class="card-text"><?=$chamado_dados[2]?></p>
 
                 </div>
               </div>
